@@ -74,9 +74,9 @@ export default function TopbarControls({ goProfile, onLogout }: Props) {
 
   const handleProfileClick = (key: string) => {
     if (key === 'profile') {
-      goProfile && goProfile();
+      goProfile?.();
     } else if (key === 'logout') {
-      onLogout && onLogout();
+      onLogout?.();
     }
   };
 

@@ -1,9 +1,9 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import React from 'react';
 import DropOption from './DropOption';
 
 // Mock antd Dropdown to expose menu items for testing
 jest.mock('antd', () => {
+  const React = require('react');
   return {
     Dropdown: ({ menu, children }: any) =>
       React.createElement(
@@ -31,10 +31,13 @@ jest.mock('antd', () => {
   };
 });
 
-jest.mock('@ant-design/icons', () => ({
-  BarsOutlined: () => React.createElement('span', null, 'Bars'),
-  DownOutlined: () => React.createElement('span', null, 'Down'),
-}));
+jest.mock('@ant-design/icons', () => {
+  const React = require('react');
+  return {
+    BarsOutlined: () => React.createElement('span', null, 'Bars'),
+    DownOutlined: () => React.createElement('span', null, 'Down'),
+  };
+});
 
 test('renders default trigger when no children provided', () => {
   render(<DropOption menuOptions={[]} />);

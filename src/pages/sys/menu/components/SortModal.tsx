@@ -74,7 +74,7 @@ export default function SortModal({ open, menus, onCancel, onConfirm }: Props) {
           route: r.route || '/',
           sort: r.sort,
           children: r.children ? buildMenuTree(r.children) : undefined,
-        } as MenuItem),
+        }) as MenuItem,
     );
   };
 

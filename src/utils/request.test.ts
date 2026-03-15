@@ -41,7 +41,7 @@ describe('api', () => {
     const err = new Error('net fail');
     (global.fetch as jest.Mock).mockRejectedValue(err);
     const spy = jest.spyOn(message, 'error') as jest.SpyInstance<any, any>;
-    spy.mockImplementation(() => ({} as any));
+    spy.mockImplementation(() => ({}) as any);
     await expect(api('/x')).rejects.toThrow('net fail');
     expect(spy).toBeCalledWith('net fail');
     spy.mockRestore();
@@ -54,7 +54,7 @@ describe('api', () => {
       json: async () => ({}),
     });
     const spy = jest.spyOn(message, 'error') as jest.SpyInstance<any, any>;
-    spy.mockImplementation(() => ({} as any));
+    spy.mockImplementation(() => ({}) as any);
     await expect(api('/x')).rejects.toThrow('Invalid API response format');
     expect(spy).toBeCalledWith('Invalid API response format');
     spy.mockRestore();
